@@ -4,17 +4,66 @@
  */
 package com.mycompany.stockear;
 
+import java.sql.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author Mateo Santarsiero <MateoSantar>
  */
 public class DatabaseAdminList extends javax.swing.JFrame {
 
+    private Connection con;
+
     /**
      * Creates new form DatabaseAdminList
      */
     public DatabaseAdminList() {
         initComponents();
+        con = connectToDB();
+        if(con == null){
+            System.out.println("Conexion no establecida");
+        }
+        ResultSet rs = query("SELECT * FROM oopproject.products;",con);
+        fillList(rs);
+    }
+
+    private Connection connectToDB() {
+        final String URL = "jdbc:mysql://localhost:3306/oopproject";
+        final String USER = "root";
+        final String PSW = "root";
+        try {
+            return DriverManager.getConnection(URL, USER, PSW);
+        } catch (SQLException ex) {
+            Logger.getLogger(DatabaseAdminList.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
+        }
+
+    }
+
+    private ResultSet query(String queryString, Connection con) {
+        try {
+            Statement st = con.createStatement();
+            ResultSet ts = st.executeQuery(queryString);
+            return ts;
+        } catch (SQLException ex) {
+            Logger.getLogger(DatabaseAdminList.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
+        }
+    }
+    
+    private void fillList(ResultSet rs){
+        try {
+            StringBuilder sb = new StringBuilder();
+            while(rs.next()){
+                sb.append("ID: " + rs.getInt("id")+"\tName: " + rs.getString("name"));
+                sb.append("\tPrice: "+rs.getDouble("price")+"\tStock: "+rs.getInt("stock"));
+                productsList.add(sb.toString());
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(DatabaseAdminList.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
@@ -26,7 +75,7 @@ public class DatabaseAdminList extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        ProductsList = new java.awt.List();
+        productsList = new java.awt.List();
         label1 = new java.awt.Label();
         textField1 = new java.awt.TextField();
         label3 = new java.awt.Label();
@@ -53,7 +102,7 @@ public class DatabaseAdminList extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(ProductsList, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(productsList, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 172, Short.MAX_VALUE)
@@ -74,7 +123,7 @@ public class DatabaseAdminList extends javax.swing.JFrame {
                             .addComponent(textField1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(5, 5, 5)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(ProductsList, javax.swing.GroupLayout.PREFERRED_SIZE, 349, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(productsList, javax.swing.GroupLayout.PREFERRED_SIZE, 349, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
@@ -116,9 +165,9 @@ public class DatabaseAdminList extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private java.awt.List ProductsList;
     private java.awt.Label label1;
     private java.awt.Label label3;
+    private java.awt.List productsList;
     private java.awt.TextField textField1;
     // End of variables declaration//GEN-END:variables
 }

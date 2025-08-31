@@ -25,7 +25,7 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="ProductsList" max="32767" attributes="0"/>
+          <Component id="productsList" max="32767" attributes="0"/>
           <Group type="102" attributes="0">
               <Component id="label1" min="-2" pref="224" max="-2" attributes="0"/>
               <EmptySpace pref="172" max="32767" attributes="0"/>
@@ -51,13 +51,13 @@
                   </Group>
               </Group>
               <EmptySpace max="32767" attributes="0"/>
-              <Component id="ProductsList" min="-2" pref="349" max="-2" attributes="0"/>
+              <Component id="productsList" min="-2" pref="349" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="java.awt.List" name="ProductsList">
+    <Component class="java.awt.List" name="productsList">
     </Component>
     <Component class="java.awt.Label" name="label1">
       <Properties>

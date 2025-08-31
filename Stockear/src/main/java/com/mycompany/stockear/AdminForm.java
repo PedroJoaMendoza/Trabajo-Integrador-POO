@@ -3,10 +3,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package com.mycompany.stockear;
-
 /**
  *
- * @author Mateo Santarsiero <MateoSantar>
+ * @author Mateo Santarsiero 
  */
 public class AdminForm extends javax.swing.JFrame {
 
@@ -16,6 +15,10 @@ public class AdminForm extends javax.swing.JFrame {
      */
     private DatabaseAdminList dbList;
     
+    /**
+     *
+     * @param dbList
+     */
     public AdminForm(DatabaseAdminList dbList) {
         initComponents();
         this.dbList = dbList;
