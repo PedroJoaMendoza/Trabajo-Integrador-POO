@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package models;
 
 import interfaces.Dao;
@@ -10,10 +7,10 @@ import java.util.List;
 
 /**
  *
- * @author idra2
+ * @author Mateo Santarsiero
  */
 public class ClientDao implements Dao<Client> {
-    private List<Client> clients = new ArrayList<Client>();
+    private final List<Client> clients = new ArrayList<>();
      
     @Override
     public Client Get(long id) {
@@ -39,7 +36,7 @@ public class ClientDao implements Dao<Client> {
     @Override
     public void update(Client oldClient, Client newClient) {
         for(Client c : clients){
-            if (oldClient.getID() == newClient.getID()) {
+            if (c.getID() == oldClient.getID()) {
                 clients.add(clients.indexOf(c), newClient);
             }
         }

@@ -1,17 +1,22 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package models;
 
 /**
  *
- * @author idra2
+ * @author Mateo Santarsiero 
  */
 public class Client {
     private int ID;
     private String name, phone;
 
+    public Client(int ID, String name, String phone) {
+        this.ID = ID;
+        this.name = name;
+        this.phone = phone;
+    }
+
+    
+    
     public int getID() {
         return ID;
     }
