@@ -26,6 +26,9 @@ public class MainView extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        RightClickMenu = new javax.swing.JPopupMenu();
+        Update_Menu_Item = new javax.swing.JMenuItem();
+        Delete_Menu_Item = new javax.swing.JMenuItem();
         searchBtn = new javax.swing.JButton();
         reserveBtn = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -33,9 +36,16 @@ public class MainView extends javax.swing.JFrame {
         jComboBox1 = new javax.swing.JComboBox<>();
         searchTextField = new java.awt.TextField();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        Update_Menu_Item.setText("Editar");
+        RightClickMenu.add(Update_Menu_Item);
 
-        searchBtn.setText("jButton1");
+        Delete_Menu_Item.setText("Eliminar");
+        RightClickMenu.add(Delete_Menu_Item);
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Main View");
+
+        searchBtn.setText("Buscar");
 
         reserveBtn.setText("Reservar");
         reserveBtn.setToolTipText("Agrega una reserva");
@@ -66,6 +76,8 @@ public class MainView extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        reservationsTable.setComponentPopupMenu(RightClickMenu);
+        reservationsTable.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         reservationsTable.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(reservationsTable);
         if (reservationsTable.getColumnModel().getColumnCount() > 0) {
@@ -77,13 +89,6 @@ public class MainView extends javax.swing.JFrame {
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ID", "Categoria", "Cliente" }));
         jComboBox1.setToolTipText("");
-
-        searchTextField.setText("textField1");
-        searchTextField.addTextListener(new java.awt.event.TextListener() {
-            public void textValueChanged(java.awt.event.TextEvent evt) {
-                searchTextFieldTextValueChanged(evt);
-            }
-        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -108,10 +113,11 @@ public class MainView extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(reserveBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(searchBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(reserveBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(searchBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jComboBox1))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(11, 11, 11)
                         .addComponent(searchTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -123,11 +129,11 @@ public class MainView extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void searchTextFieldTextValueChanged(java.awt.event.TextEvent evt) {//GEN-FIRST:event_searchTextFieldTextValueChanged
-    }//GEN-LAST:event_searchTextFieldTextValueChanged
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem Delete_Menu_Item;
+    private javax.swing.JPopupMenu RightClickMenu;
+    private javax.swing.JMenuItem Update_Menu_Item;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable reservationsTable;
