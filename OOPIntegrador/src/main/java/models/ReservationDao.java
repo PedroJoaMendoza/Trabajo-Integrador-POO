@@ -34,12 +34,13 @@ public class ReservationDao implements Dao<Reservation> {
     }
 
     @Override
-    public void update(Reservation oldOne, Reservation newOne) {
-        for(Reservation r : reservations){
-            if (r.getID() == oldOne.getID()) {
-                reservations.add(reservations.indexOf(r), newOne);
-            }
+    public boolean update(Reservation oldOne, Reservation newOne) {
+        int index = reservations.indexOf(oldOne);
+        if (index != -1) {
+            reservations.set(index, newOne);
+            return true;
         }
+        return false;
     }
 
     @Override

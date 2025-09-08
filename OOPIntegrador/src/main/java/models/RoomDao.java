@@ -10,15 +10,18 @@ public class RoomDao implements Dao<Room> {
 
     @Override
     public Room Get(long id) {
-        return rooms.stream()
-                .filter(r -> r.getID() == id)
-                .findFirst()
-                .orElse(null);
+        for(Room r : rooms){
+            if (r.getID() == id) {
+                return r;
+            }
+        }
+        System.out.println("No se encontro una habitacion"); // <-- En la ventana de busqueda, debe mostrarse el error
+        return null;
     }
 
     @Override
     public List<Room> GetAll() {
-        return new ArrayList<>(rooms);
+        return rooms;
     }
 
     @Override
@@ -27,11 +30,13 @@ public class RoomDao implements Dao<Room> {
     }
 
     @Override
-    public void update(Room oldOne, Room newOne) {
+    public boolean update(Room oldOne, Room newOne) {
         int index = rooms.indexOf(oldOne);
         if (index != -1) {
             rooms.set(index, newOne);
+            return true;
         }
+        return false;
     }
 
     @Override

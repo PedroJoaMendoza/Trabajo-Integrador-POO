@@ -3,7 +3,7 @@
  */
 
 package com.oopintegrador;
-
+import views.MainView;
 /**
  *
  * @author idra2
@@ -11,6 +11,7 @@ package com.oopintegrador;
 public class OOPIntegrador {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        MainView mv = new MainView();
+        mv.setVisible(true);
     }
 }

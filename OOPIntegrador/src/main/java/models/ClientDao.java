@@ -34,12 +34,13 @@ public class ClientDao implements Dao<Client> {
     }
 
     @Override
-    public void update(Client oldClient, Client newClient) {
-        for(Client c : clients){
-            if (c.getID() == oldClient.getID()) {
-                clients.add(clients.indexOf(c), newClient);
-            }
+    public boolean update(Client oldClient, Client newClient) {
+        int index = clients.indexOf(oldClient);
+        if (index != -1) {
+            clients.set(index, newClient);
+            return true;
         }
+        return false;
     }
 
     @Override

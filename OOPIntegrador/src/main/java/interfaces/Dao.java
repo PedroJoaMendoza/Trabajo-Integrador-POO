@@ -19,7 +19,7 @@ public interface Dao<T> {
     
     void save(T t);
    
-    void update(T oldOne, T newOne);
+    boolean update(T oldOne, T newOne);
     
     void delete(T t);
 }
