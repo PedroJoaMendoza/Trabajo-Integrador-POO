@@ -49,14 +49,18 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jScrollPane1" max="32767" attributes="0"/>
                   <Group type="102" attributes="0">
-                      <Component id="reserveBtn" min="-2" pref="115" max="-2" attributes="0"/>
+                      <Component id="reserveBtn" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="searchBtn" min="-2" pref="115" max="-2" attributes="0"/>
+                      <Component id="updateBtn" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
+                      <Component id="deleteBtn" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="searchBtn1" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
                       <Component id="jComboBox1" min="-2" pref="85" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="searchTextField" min="-2" pref="202" max="-2" attributes="0"/>
-                      <EmptySpace min="0" pref="12" max="32767" attributes="0"/>
+                      <Component id="searchTextField" min="-2" pref="175" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
@@ -65,30 +69,29 @@
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" attributes="0">
+              <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="1" attributes="0">
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="reserveBtn" alignment="3" min="-2" pref="47" max="-2" attributes="0"/>
-                      <Component id="searchBtn" alignment="3" min="-2" pref="47" max="-2" attributes="0"/>
+                      <Component id="deleteBtn" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="reserveBtn" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="updateBtn" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="searchBtn1" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jComboBox1" alignment="3" max="32767" attributes="0"/>
                   </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
-                      <Component id="searchTextField" min="-2" max="-2" attributes="0"/>
-                  </Group>
+                  <Component id="searchTextField" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="jScrollPane1" pref="461" max="32767" attributes="0"/>
+              <EmptySpace pref="14" max="32767" attributes="0"/>
+              <Component id="jScrollPane1" pref="473" max="32767" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JButton" name="searchBtn">
+    <Component class="javax.swing.JButton" name="deleteBtn">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Buscar"/>
+        <Property name="text" type="java.lang.String" value="Eliminar"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="reserveBtn">
@@ -167,6 +170,16 @@
       </AuxValues>
     </Component>
     <Component class="java.awt.TextField" name="searchTextField">
+    </Component>
+    <Component class="javax.swing.JButton" name="searchBtn1">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Buscar"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="updateBtn">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Actualizar"/>
+      </Properties>
     </Component>
   </SubComponents>
 </Form>

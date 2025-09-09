@@ -29,12 +29,14 @@ public class MainView extends javax.swing.JFrame {
         RightClickMenu = new javax.swing.JPopupMenu();
         Update_Menu_Item = new javax.swing.JMenuItem();
         Delete_Menu_Item = new javax.swing.JMenuItem();
-        searchBtn = new javax.swing.JButton();
+        deleteBtn = new javax.swing.JButton();
         reserveBtn = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         reservationsTable = new javax.swing.JTable();
         jComboBox1 = new javax.swing.JComboBox<>();
         searchTextField = new java.awt.TextField();
+        searchBtn1 = new javax.swing.JButton();
+        updateBtn = new javax.swing.JButton();
 
         Update_Menu_Item.setText("Editar");
         RightClickMenu.add(Update_Menu_Item);
@@ -45,7 +47,7 @@ public class MainView extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Main View");
 
-        searchBtn.setText("Buscar");
+        deleteBtn.setText("Eliminar");
 
         reserveBtn.setText("Reservar");
         reserveBtn.setToolTipText("Agrega una reserva");
@@ -90,6 +92,10 @@ public class MainView extends javax.swing.JFrame {
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ID", "Categoria", "Cliente" }));
         jComboBox1.setToolTipText("");
 
+        searchBtn1.setText("Buscar");
+
+        updateBtn.setText("Actualizar");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -99,30 +105,34 @@ public class MainView extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(reserveBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(reserveBtn)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(searchBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(updateBtn)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(deleteBtn)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(searchBtn1)
+                        .addGap(33, 33, 33)
                         .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(searchTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 12, Short.MAX_VALUE)))
+                        .addComponent(searchTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(6, 6, 6)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(reserveBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(searchBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(deleteBtn)
+                        .addComponent(reserveBtn)
+                        .addComponent(updateBtn)
+                        .addComponent(searchBtn1)
                         .addComponent(jComboBox1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(11, 11, 11)
-                        .addComponent(searchTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 461, Short.MAX_VALUE)
+                    .addComponent(searchTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 473, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -134,11 +144,13 @@ public class MainView extends javax.swing.JFrame {
     private javax.swing.JMenuItem Delete_Menu_Item;
     private javax.swing.JPopupMenu RightClickMenu;
     private javax.swing.JMenuItem Update_Menu_Item;
+    private javax.swing.JButton deleteBtn;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable reservationsTable;
     private javax.swing.JButton reserveBtn;
-    private javax.swing.JButton searchBtn;
+    private javax.swing.JButton searchBtn1;
     private java.awt.TextField searchTextField;
+    private javax.swing.JButton updateBtn;
     // End of variables declaration//GEN-END:variables
 }
