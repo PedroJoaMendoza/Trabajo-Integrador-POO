@@ -14,7 +14,7 @@ import models.*;
 
 /**
  *
- * @author Mateo Santarsiero <MateoSantar>
+ * @author Mateo Santarsiero 
  */
 public class MainView extends javax.swing.JFrame {
 

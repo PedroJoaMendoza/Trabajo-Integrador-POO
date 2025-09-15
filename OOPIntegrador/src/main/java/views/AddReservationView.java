@@ -6,7 +6,7 @@ package views;
 
 /**
  *
- * @author Mateo Santarsiero <MateoSantar>
+ * @author Mateo Santarsiero 
  */
 public class AddReservationView extends javax.swing.JFrame {
 
