@@ -6,10 +6,10 @@ package models;
  */
 public class Room {
     private int ID;
-    private RoomCategory category;
+    private String category;
     private double price;
 
-    public Room(int ID, RoomCategory category, double price) {
+    public Room(int ID, String category, double price) {
         this.ID = ID;
         this.category = category;
         this.price = price;
@@ -26,11 +26,11 @@ public class Room {
         this.ID = ID;
     }
 
-    public RoomCategory getCategory() {
+    public String getCategory() {
         return category;
     }
 
-    public void setCategory(RoomCategory category) {
+    public void setCategory(String category) {
         this.category = category;
     }
 

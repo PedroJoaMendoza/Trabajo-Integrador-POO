@@ -4,7 +4,11 @@
  */
 package views;
 
-import java.sql.Connection;
+import java.sql.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JDialog;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import models.*;
 
@@ -22,11 +26,30 @@ public class MainView extends javax.swing.JFrame {
         this.conn = conn;
         initComponents();
         removeDefaultRows();
+        loadReservations();
     }
 
-//    private void loadReservations(){ -> Carga los datos de la DB
-//             
-//    }
+    private void loadReservations(){ 
+        try {
+            DefaultTableModel model = (DefaultTableModel) reservationsTable.getModel();
+            String query = "SELECT r.idReserva,c.nombre,c.apellido,h.categoria,r.fecha_reserva,h.precio FROM reservas r\n" +
+                    "INNER JOIN clientes c ON r.idCliente = c.idCliente\n" +
+                    "INNER JOIN habitaciones h ON r.numeroHabitacion = h.numeroHabitacion;";
+            PreparedStatement ps = conn.prepareStatement(query);
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()){
+                int id = rs.getInt("idReserva");
+                String name = rs.getString("nombre");
+                String surName = rs.getString("apellido");
+                String category = rs.getString("categoria");
+                Date date = rs.getDate("fecha_reserva");
+                Double price = rs.getDouble("precio");
+                model.addRow(new Object[]{String.valueOf(id),(name + " " + surName),category,price.toString(),date.toString()});
+            }
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error en el pasaje de la DB", "Error de GET", JOptionPane.ERROR_MESSAGE);
+        }
+    }
     
     
     
@@ -73,20 +96,20 @@ public class MainView extends javax.swing.JFrame {
 
         reservationsTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "ID", "Cliente", "Categoria", "Precio"
+                "ID", "Cliente", "Categoria", "Precio", "Fecha"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.Double.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false
+                false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -106,6 +129,7 @@ public class MainView extends javax.swing.JFrame {
             reservationsTable.getColumnModel().getColumn(1).setResizable(false);
             reservationsTable.getColumnModel().getColumn(2).setResizable(false);
             reservationsTable.getColumnModel().getColumn(3).setResizable(false);
+            reservationsTable.getColumnModel().getColumn(4).setResizable(false);
         }
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ID", "Categoria", "Cliente" }));

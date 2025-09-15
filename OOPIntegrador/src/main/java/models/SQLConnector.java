@@ -9,7 +9,7 @@ import javax.swing.JOptionPane;
  * @author Mateo Santarsiero 
  */
 public class SQLConnector implements DBConnector {
-    private final String URL = "jdbc:mysql://localhost:3306/oopproject";
+    private final String URL = "jdbc:mysql://localhost:3306/hoteldb";
     private final String USER = "root";
     private final String PASSWORD = "root";
     
