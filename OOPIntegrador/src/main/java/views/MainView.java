@@ -27,6 +27,7 @@ public class MainView extends javax.swing.JFrame {
         initComponents();
         removeDefaultRows();
         loadReservations();
+        
     }
 
     private void loadReservations(){ 
@@ -88,11 +89,17 @@ public class MainView extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Main View");
+        setResizable(false);
 
         deleteBtn.setText("Eliminar");
 
         reserveBtn.setText("Reservar");
         reserveBtn.setToolTipText("Agrega una reserva");
+        reserveBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                reserveBtnActionPerformed(evt);
+            }
+        });
 
         reservationsTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -181,6 +188,11 @@ public class MainView extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void reserveBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reserveBtnActionPerformed
+        AddReservationView arv = new AddReservationView(true);
+        arv.setVisible(true);
+    }//GEN-LAST:event_reserveBtnActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
