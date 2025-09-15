@@ -4,6 +4,10 @@
  */
 package views;
 
+import java.sql.Connection;
+import javax.swing.table.DefaultTableModel;
+import models.*;
+
 /**
  *
  * @author Mateo Santarsiero <MateoSantar>
@@ -13,10 +17,25 @@ public class MainView extends javax.swing.JFrame {
     /**
      * Creates new form MainView
      */
-    public MainView() {
+    private final Connection conn;
+    public MainView(Connection conn) {
+        this.conn = conn;
         initComponents();
+        removeDefaultRows();
     }
 
+//    private void loadReservations(){ -> Carga los datos de la DB
+//             
+//    }
+    
+    
+    
+    private void removeDefaultRows(){
+        DefaultTableModel model = (DefaultTableModel) reservationsTable.getModel();
+        for (int i = 0; i < 4; i++) {
+            model.removeRow(0);
+        }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
